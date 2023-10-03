@@ -9,52 +9,56 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <div class="sidebarlogo">
-                <div class="logo">
-
+            <div class="sidebarContent">
+                <div class="sidebarLogo">
+                    <div class="logo">
+                        <img src="images/icons8-library-100.png" alt="library logo">
+    
+                    </div>
+                    <div class="logoName">
+                        <p>LIBRARIUM</p>
+                    </div>
                 </div>
-                <div class="logoname">
-                    My library
+                <div class="addButtonContainer">
+                    <div class="addButton">
+                        <button id="addNewBook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus</title><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>
+                            <p>Add book</p>
+                        </button>
+                    </div>
+                    
                 </div>
-            </div>
-            <div class="addbuttoncontainer">
-                <div class="addbutton">
-                    <button id="addnewbook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus</title><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>
-                        <p>Add New Book</p>
-                    </button>
+                <div class="newBookContainer">
+                    <form id="newBookForm" action="">
+                        <div class="tapr">
+                            <div>
+                                <label for="title">Title</label>
+                                <input type="text" id="title" class="tapri">
+                            </div>
+                            <div>
+                                <label for="author">Author</label>
+                                <input type="text" id="author" class="tapri">
+                            </div>
+                            <div>
+                                <label for="pages">Pages</label>
+                                <input type="number" id="pages" class="tapri">
+                            </div>
+                            <div class="check">
+                                <label for="read">Read:</label>
+                                <input type="checkbox" id="read">
+                            </div>
+                        </div>
+                        <div class="btns">
+                            <button id="cancelBtn">Cancel</button>
+                            <input id="submitBtn" type="submit" value="Add book">
+                        </div>
+                    </form>
                 </div>
-                
-            </div>
-            <div class="newbookcontainer">
-                <form id="newbookform" action="">
-                    <div>
-                        <label for="title">Title</label>
-                        <input type="text" id="title">
-                    </div>
-                    <div>
-                        <label for="author">Author</label>
-                        <input type="text" id="author">
-                    </div>
-                    <div>
-                        <label for="pages">Pages</label>
-                        <input type="number" id="pages">
-                    </div>
-                    <div>
-                        <label for="status">Read:</label>
-                        <input type="checkbox" id="status">
-                    </div>
-                    <div>
-                        <button id="cancel">Cancel</button>
-                    </div>
-                    <div>
-                        <input type="submit" value="add book">
-                    </div>
-                </form>
             </div>
         </div>
-        <div class="contentcontainer">
-            <div class="content">
 
+        <div class="contentContainer">
+            <div class="content">
+                <div id="library"></div>
             </div>
             
         </div>

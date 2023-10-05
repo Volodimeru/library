@@ -5,19 +5,45 @@ function Book(title,author,pages,read) {
     this.author = author
     this.pages = pages
     this.read = read
-    // this.info = function() {
-    //     return `${title} by ${author}, ${pages} pages, ${read}`
-    // }
 }
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+
 function render() {
-    let libra = document.querySelector("#library")
-    libra.innerHTML = "";
+    let library = document.querySelector("#library")
+    library.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
         let book = myLibrary[i];
-        let bookele = document.createElement('div');
-        bookele.innerHTML = `<p>${book.title}</p>`;
-        libra.appendChild(bookele);
+        let bookelement = document.createElement('div');
+        bookelement.setAttribute("class", "bookelement")
+        bookelement.innerHTML = `
+        <div>
+        <p>${book.title}</p>
+        <p>${book.author}</p>
+        <p>${book.pages}</p>
+        <p>${book.read ? "Read" : "Not read yet"}</p>
+        <p id="doublebut">
+        <button id="toggleBtn" class="btn" onclick="toggleRead(${i})">Change status</button>
+        <button class="btn" onclick="removeBook(${i})">Remove</button>
+        </p>
+        </div>
+        `;
+        library.appendChild(bookelement);
     }
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    render();
+}
+
+function removeBook(index) {
+    myLibrary.splice(index,1);
+    if (myLibrary.length <1 ) {
+        content.style.display = "none";
+    }
+    render();
 }
 function addBookToLibrary() {
     let title = document.querySelector('#title').value;
@@ -28,9 +54,8 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
     render();
 }
-
-
-
+const contentContainer = document.querySelector(".contentContainer");
+const content = document.querySelector(".content");
 const addButtonContainer = document.querySelector(".addButtonContainer");
 const newBookContainer = document.querySelector('.newBookContainer');
 const addNewBook = document.querySelector('#addNewBook');
@@ -43,12 +68,31 @@ addNewBook.addEventListener("click", function(event) {
     newBookContainer.style.display = "block";
 })
 
-document.querySelector("#cancelBtn").addEventListener("click", function () {
+document.querySelector("#cancelBtn").addEventListener("click", function (event) {
+    event.preventDefault();
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    read.checked = false;
+
     newBookContainer.style.display = "none";
     addButtonContainer.style.display = "block";
 })
+
 submitBtn.addEventListener("click", function(event) {
     event.preventDefault();
+    if (title.value != "" &&
+        author.value != ""
+    ) {
+        newBookContainer.style.display = "none";
+        addButtonContainer.style.display = "block";
+        contentContainer.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+    content.style.display = "block";
     addBookToLibrary()
+    }
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    read.checked = false;
 })
 

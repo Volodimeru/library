@@ -27,7 +27,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 100px;
+}
+.content {
+    display:none;
 }
 .logo {
     display: flex;
@@ -39,24 +42,25 @@
     font-size: 2.5rem;
     font-weight: bold;
 }
-.addButtonContainer {
-   
-}
 .contentContainer {
     grid-area: 1/2/2/-1;
 }
 .footer {
-    display: flex;
-    margin-left: calc(vw/2);
     align-content: center;
     grid-area: 2/2/-1/-1;
 }
 .footer >p {
-    margin-left: 200px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #475569;
+    font-family: roboto-regular;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 #addNewBook {
     display: block;
-    width: 100px;
+    width: 130px;
     background-color: red;
     border: none;
     padding: 10px;
@@ -65,13 +69,17 @@
     cursor: pointer;
 }
 #addNewBook:hover {
-
+    background-color: white;
+    color: white;
+    box-shadow: none;
 }
 #addNewBook>svg{
-    fill: white;
+    fill: black;
+}
+#addNewBook>svg:hover{
+    fill: red;
 }
 #addNewBook>p {
-    color: white;
     font-family: roboto-bold;
     font-weight:bolder;
     font-size: 0.9rem;
@@ -97,7 +105,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-
 }
 .tapr div label {
     width: 50px;
@@ -110,23 +117,24 @@
     display: flex;
     justify-content: space-evenly;
     gap: 50px;
-    
 }
-#cancelBtn, #submitBtn {
+.btn {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
     background-color: red;
     border:none;
     border-radius: 4px;
     font-family: roboto-bold;
     color: white;
-    width: 90px;
-    padding: 8px 14px;
+    width: 100px;
+    padding: 8px 4px;
 }
-#submitBtn:hover {
-    background-color: rgb(224, 21, 21);
+.btn:hover {
+    background-color: white;
+    color:red;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
 }
-#cancelBtn:hover {
-    background-color: rgb(224, 21, 21);
+.btn:focus {
+    box-shadow: 3px 3px 10px rgba(255, 0, 0, 0.9);
 }
 .tapri:focus {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
@@ -148,22 +156,63 @@ input[type="checkbox"] {
     height:20px;
     border:2px solid black;
     border-radius: 3px;
-  }
-  input[type="checkbox"]::before {
+}
+input[type="checkbox"]::before {
     content: "";
     width: 0.65em;
     height: 0.65em;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em red;
-  }
-  input[type="checkbox"]:checked::before {
+}
+input[type="checkbox"]:checked::before {
     transform: scale(1);
-  }
+}
 .tapr input:not(#read) {
     padding: 5px 2px;
     border:2px solid black;
     border-radius: 3px;
     font-family: roboto-regular;
     font-size: 0.8rem;
+}
+#library {
+    margin: 0px auto 0 auto;
+    width: 90%;
+}
+.libraryHeader{
+    width: 90%;
+    margin: 100px auto 0 auto;
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr 2fr 3fr;
+    align-items: center;
+    justify-items: start;
+}
+.libraryHeader p {
+    font-family: roboto-bold;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
+}
+.bookelement {
+    
+    margin: 0px auto;
+    height: 70px;
+}
+.bookelement div {
+    font-family: roboto-regular;
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr 2fr 3fr;
+    grid-template-rows: 50px;
+    align-items: center;
+    justify-items: start;
+    border-bottom: 2px solid red;
+}
+.bookelement div p {
+    padding: 0.3rem 0.5rem;
+}
+#doublebut {
+    display: flex;
+    gap: 10px;
+}
+#doublebut button {
+    flex:1;
 }

@@ -15,14 +15,18 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto 20px;
 }
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
     grid-area: 1/1/-1/2;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    box-shadow:   3px 3px 10px rgba(0, 0, 0, 0.3);
 }
 .sidebarContent {
-    margin:30px auto;
+    margin:30px auto 0 auto;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -43,20 +47,17 @@
     font-weight: bold;
 }
 .contentContainer {
-    grid-area: 1/2/2/-1;
+    box-shadow:  3px 3px 10px rgba(0, 0, 0, 0.3);
+    grid-area: 1/2/-1/-1;
 }
 .footer {
-    align-content: center;
-    grid-area: 2/2/-1/-1;
+height: 20px;
 }
 .footer >p {
     font-size: 0.8rem;
     font-weight: bold;
     color: #475569;
     font-family: roboto-regular;
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 #addNewBook {
     display: block;
@@ -193,20 +194,19 @@ input[type="checkbox"]:checked::before {
     padding: 0.3rem 0.5rem;
 }
 .bookelement {
-    
     margin: 0px auto;
-    height: 70px;
 }
 .bookelement div {
+    height: 70px;
     font-family: roboto-regular;
     display: grid;
-    grid-template-columns: 3fr 3fr 2fr 2fr 3fr;
-    grid-template-rows: 50px;
     align-items: center;
-    justify-items: start;
+    justify-items: start;    
+    grid-template-columns: 3fr 3fr 2fr 2fr 3fr;
     border-bottom: 2px solid red;
 }
 .bookelement div p {
+    white-space: normal;
     padding: 0.3rem 0.5rem;
 }
 #doublebut {

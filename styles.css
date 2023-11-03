@@ -158,20 +158,21 @@ input[type="checkbox"] {
     border:2px solid black;
     border-radius: 3px;
 }
+
 input[type="checkbox"]::before {
     content: "";
     width: 0.65em;
     height: 0.65em;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em red;
+    box-shadow: inset 1em 1em green;
 }
 input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
 .tapr input:not(#read) {
     padding: 5px 2px;
-    border:2px solid black;
+    
     border-radius: 3px;
     font-family: roboto-regular;
     font-size: 0.8rem;
@@ -216,3 +217,14 @@ input[type="checkbox"]:checked::before {
 #doublebut button {
     flex:1;
 }
+
+input:invalid:not(input[type="checkbox"]) {
+    border-color: #900;
+    border:2px solid red;
+    border-color: red;
+}
+
+input:valid:not(input[type="checkbox"]){
+
+    border:2px solid black;
+} 

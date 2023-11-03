@@ -21,37 +21,37 @@
                 </div>
                 <div class="addButtonContainer">
                     <div class="addButton">
-                        <button id="addNewBook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus</title><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>
+                        <button type="button" id="addNewBook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus</title><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>
                             <p>Add book</p>
                         </button>
                     </div>
                     
                 </div>
                 <div class="newBookContainer">
-                    <form id="newBookForm" action="">
+                    <form id = 'kata'>
                         <div class="tapr">
                             <div>
                                 <label for="title">Title</label>
-                                <input type="text" id="title" class="tapri" maxlength="40">
+                                <input type="text" id="title" name="title" class="tapri" required >
                             </div>
                             <div>
                                 <label for="author">Author</label>
-                                <input type="text" id="author" class="tapri" maxlength="40">
+                                <input type="text" id="author" name="author" class="tapri" required >
                             </div>
                             <div>
                                 <label for="pages">Pages</label>
-                                <input type="number" id="pages" class="tapri" min="1" max="1000">
+                                <input type="number" id="pages" name="pages" min="1" max="10000" class="tapri" required >
                             </div>
                             <div class="check">
                                 <label for="read">Read:</label>
-                                <input type="checkbox" id="read">
+                                <input type="checkbox" id="read" name="read"  >
+                            </div>
+                            <div class="btns">
+                                <button id="cancelBtn" class="btn" type="button">Cancel</button>
+                                <button id="submitBtn" class="btn" type="submit">Submit</button>
                             </div>
                         </div>
-                        <div class="btns">
-                            <button id="cancelBtn" class="btn">Cancel</button>
-                            <input id="submitBtn" class="btn" type="submit" value="Add book">
-                        </div>
-                    </form>
+                        </form>
                 </div>
             </div>
             <div class="footer">

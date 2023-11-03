@@ -60,38 +60,55 @@ function addBookToLibrary() {
 const contentContainer = document.querySelector(".contentContainer");
 const content = document.querySelector(".content");
 const addButtonContainer = document.querySelector(".addButtonContainer");
-const newBookContainer = document.querySelector('.newBookContainer');
+const newBookContainer = document.querySelector(".newBookContainer")
 const addBookBtn = document.querySelector('#addNewBook');
 const submitBtn = document.querySelector("#submitBtn");
+const cancelBtn = document.querySelector("#cancelBtn")
+const sidebarContent = document.querySelector('.sidebarContent')
+const myform = document.querySelector('#kata')
+
 
 
 addBookBtn.addEventListener("click", function(event) {
-    event.preventDefault();
     addButtonContainer.style.display = "none";
     newBookContainer.style.display = "block";
 })
 
-cancelBtn.addEventListener("click", function (event) {
-    event.preventDefault();
-    title.value = "";
-    author.value = "";
-    pages.value = "";
-    read.checked = false;
-    newBookContainer.style.display = "none";
-    addButtonContainer.style.display = "block";
-})
 
-submitBtn.addEventListener("click", function(event) {
-    event.preventDefault();
-    if (title.value != "" && author.value != "") {
+
+
+document.addEventListener("click", function (event) {
+    if (event.target.id === "cancelBtn") {
+        clearInputsFields()
         newBookContainer.style.display = "none";
         addButtonContainer.style.display = "block";
-        contentContainer.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-        content.style.display = "block";
-        addBookToLibrary()
-        }
-    title.value = "";
-    author.value = "";
-    pages.value = "";
-    read.checked = false;
+    }
 })
+
+
+function addBook () {
+    newBookContainer.style.display = "none";
+    addButtonContainer.style.display = "block";
+    contentContainer.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+    content.style.display = "block";
+    addBookToLibrary()
+    clearInputsFields()
+
+}
+
+
+myform.addEventListener("submit", (event) => {
+    event.preventDefault();
+    addBook()
+})
+
+
+function clearInputsFields() {
+title.value = "";
+author.value = "";
+pages.value = "";
+read.checked = false;
+}
+
+
+  
